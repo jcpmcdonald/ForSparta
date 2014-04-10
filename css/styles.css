@@ -1,0 +1,122 @@
+
+.table
+{
+	display: inline-block;
+}
+
+.card
+{
+	position: relative;
+	float: left;
+	
+	width: 150px;
+	height: 240px;
+	border: 1px;
+	border-color: grey;
+	border-style: solid;
+	border-radius: 3px;
+	
+	background-color: lightgrey;
+	
+	margin: 10px;
+	padding: 5px;
+	
+}
+
+.contractCard
+{
+	position: relative;
+	float: left;
+	
+	width: 150px;
+	height: 240px;
+	border: 1px;
+	border-color: grey;
+	border-style: solid;
+	border-radius: 3px;
+	
+	background-color: lightyellow;
+	
+	margin: 10px;
+	padding: 5px;
+	
+	
+	font-size: xx-large;
+}
+
+.card .name
+{
+	font-weight: bold;
+}
+
+.card .pic
+{
+	height: 50%;
+	background-color: white;
+	width: 90%;
+	margin-left: 5%;
+	
+	/* background: url('../img/TCP Armored 1.jpg'); */
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	text-align: center;
+	color: red;
+	font-size: x-large;
+}
+
+.stat
+{
+	margin-left: 5px;
+}
+
+
+.playerArea
+{
+	position: relative;
+	float: left;
+	margin: 10px;
+}
+
+.player
+{
+	width: 150px;
+	height: 50px;
+	border: 1px;
+	border-color: grey;
+	border-style: solid;
+	border-radius: 3px;
+	
+	background-color: lightgrey;
+	
+	padding: 5px;
+}
+
+.player.passed
+{
+	background-color: white;
+}
+
+.player .name
+{
+	font-weight: bold;
+}
+
+
+#gameLog
+{
+	
+}
+
+#playerAction
+{
+	height: 30px;
+}
+
+
+.combatType
+{
+	font-size: large;
+	
+}
