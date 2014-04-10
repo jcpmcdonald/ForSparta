@@ -1,0 +1,14 @@
+<widget id="com.jcpmcdonald.outoftime" version="1.0.1">
+	<name>For Sparta!</name>
+	<description>
+		GDSE Spring Game Jam Entry
+	</description>
+	<author email="jcpmcdonald@gmail.com" href="http://jcpmcdonald.com">
+		John McDonald
+	</author>
+	<content src="index.html" />
+	<access origin="*" />
+	<preference name="Fullscreen" value="true" />
+	<preference name="WebViewBounce" value="true" />
+	<preference name="Orientation" value="portrait" />
+</widget>
