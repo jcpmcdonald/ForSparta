@@ -4,6 +4,8 @@
 	<meta charset="utf-8" />
 	<title>For Sparta!</title>
 	
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	
 	<link rel="stylesheet" type="text/css" href="css/ui-redmond/jquery-ui.custom.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
@@ -24,13 +26,13 @@
 </head>
 <body>
 	<div class="container">
+		<h3 id="action" class="hidden-xs">Bid for slaves:</h3>
 		<div class="table row">
-			<h3 id="action">Bid for slaves:</h3>
 			<div ng-controller="TableController">
 				<div ng-if="combatType == null">
-					<div ng-repeat="card in cards" class="card">
+					<div ng-repeat="card in cards" class="card col-xs-4 col-md-2">
 						<div class="name">{{card.name}}</div>
-						<div class="pic" style="background-image: url('img/{{card.img}}')"></div>
+						<img class="pic" src="img/{{card.img}}" />
 						<div class="stat"><b>Str:</b> {{card.str}}</div>
 						<div class="stat"><b>Dex:</b> {{card.dex}}</div>
 						<div class="stat"><b>Int:</b> {{card.intel}}</div>
@@ -40,7 +42,7 @@
 				</div>
 				<div ng-if="combatType != null">
 					<div class="combatType"><p class="bg-success">{{combatType.name}}: {{combatType.description}}</p></div>
-					<div ng-repeat="contract in contracts" class="contractCard">
+					<div ng-repeat="contract in contracts" class="contractCard col-xs-4 col-md-2">
 						<div>{{contract.gold}} Gold</div>
 					</div>
 				</div>

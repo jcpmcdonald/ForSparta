@@ -2,6 +2,7 @@
 .table
 {
 	display: inline-block;
+	margin-bottom: 5px;
 }
 
 .card
@@ -9,8 +10,9 @@
 	position: relative;
 	float: left;
 	
-	width: 150px;
-	height: 240px;
+	/*width: 150px;*/
+	/*height: 240px;*/
+	min-height:100px;
 	border: 1px;
 	border-color: grey;
 	border-style: solid;
@@ -18,7 +20,7 @@
 	
 	background-color: lightgrey;
 	
-	margin: 10px;
+	/*margin: 3px;*/
 	padding: 5px;
 	
 }
@@ -37,7 +39,7 @@
 	
 	background-color: lightyellow;
 	
-	margin: 10px;
+	margin: 3px;
 	padding: 5px;
 	
 	
@@ -52,14 +54,15 @@
 .card .pic
 {
 	height: 50%;
+	min-height:50px;
 	background-color: white;
 	width: 90%;
 	margin-left: 5%;
 	
-	/* background: url('../img/TCP Armored 1.jpg'); */
+	/* background: url('../img/TCP Armored 1.jpg');
 	background-size: auto 100%;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center;*/
 	
 	text-align: center;
 	color: red;
@@ -76,7 +79,7 @@
 {
 	position: relative;
 	float: left;
-	margin: 10px;
+	margin: 3px;
 }
 
 .player
@@ -119,4 +122,9 @@
 {
 	font-size: large;
 	
+}
+
+.row
+{
+	margin-left: 0px;
 }
