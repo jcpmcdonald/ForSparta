@@ -23,7 +23,7 @@ function PlayerController($scope)
 		human: false,
 		status: ""
 	}, {
-		name: "Charlie (AI)",
+		name: "Ken (AI)",
 		gold: Game.startingGold,
 		bid: 0,
 		deck: [],

@@ -237,7 +237,7 @@ var Game = {
 				}
 				
 				$("#playerAction").append('\
-					<div class="btn-group"> \
+					<div class="btn-group dropup">\
 						<button type="button" class="btn btn-danger"  onClick="Game.playerPass();">Pass</button> \
 						<button type="button" class="btn btn-primary" onClick="Game.playerBid(' + minBid +');">Bid ' + minBid + '</span></button> \
 						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button> \
@@ -305,7 +305,7 @@ var Game = {
 	bidWon: function()
 	{
 		scopeOf("PlayerController").activePlayers[0].gold -= scopeOf("PlayerController").activePlayers[0].bid;
-		scopeOf("PlayerController").activePlayers[0].status = "Won bid for " + scopeOf("PlayerController").activePlayers[0].bid;
+		scopeOf("PlayerController").activePlayers[0].status = "Won for " + scopeOf("PlayerController").activePlayers[0].bid;
 		log(scopeOf("PlayerController").activePlayers[0].name, "Won the bid for " + scopeOf("PlayerController").activePlayers[0].bid + "gp and gets their first pick of the slaves");
 		
 		// Move the players over to the active list
@@ -343,7 +343,7 @@ var Game = {
 			}
 			
 			cardTaken.owner = this.currentBidder;
-			cardTaken.status = "Taken by " + this.currentBidder.name;
+			cardTaken.status = this.currentBidder.name + " Owns";
 			this.currentBidder.deck.push(cardTaken);
 			log(this.currentBidder.name, "Has selected " + cardTaken.name);
 			
@@ -377,7 +377,7 @@ var Game = {
 				if(cardsOnTable[iCard].owner == null)
 				{
 					// Inject a BUY button
-					$(".buy:eq(" + iCard + ")").html('<button type="button" class="btn btn-primary" onClick="Game.playerSelectSlave(' + iCard + ');">Select</button>');
+					$(".buy:eq(" + iCard + ")").html('<button type="button" class="btn btn-primary btn-xs btn-block" onClick="Game.playerSelectSlave(' + iCard + ');">Select</button>');
 				}
 			}
 			

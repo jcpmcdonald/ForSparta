@@ -36,8 +36,7 @@
 						<div class="stat"><b>Str:</b> {{card.str}}</div>
 						<div class="stat"><b>Dex:</b> {{card.dex}}</div>
 						<div class="stat"><b>Int:</b> {{card.intel}}</div>
-						<div>{{card.status}}</div>
-						<div class="buy"></div>
+						<div class="status">{{card.status}}<div class="buy"></div></div>
 					</div>
 				</div>
 				<div ng-if="combatType != null">
@@ -49,11 +48,14 @@
 			</div>
 		</div>
 		
-		<div id="playerAction"></div>
+		<div class="row">
+			<div class="col-xs-3 col-md-4"></div>
+			<div id="playerAction" class="col-xs-8 col-md-8"></div>
+		</div>
 		
 		<div ng-controller="PlayerController">
 			<div id="playerOrder" class="row">
-				<div ng-repeat="player in activePlayers" class="playerArea">
+				<div ng-repeat="player in activePlayers" class="playerArea col-xs-4 col-md-2">
 					<div>{{player.status}}&nbsp;</div>
 					<div class="player">
 						<div class="name">{{player.name}}</div>
@@ -62,7 +64,7 @@
 				</div>
 			</div>
 			<div id="passedPlayers" class="row">
-				<div ng-repeat="player in passedPlayers" class="playerArea">
+				<div ng-repeat="player in passedPlayers" class="playerArea col-xs-4 col-md-2">
 					<div>{{player.status}}&nbsp;</div>
 					<div class="player passed">
 						<div class="name">{{player.name}}</div>
@@ -72,12 +74,14 @@
 			</div>
 			
 			
-			<div class="row" id="deck">
+			<div class="row">
 				<h3>Your Ludus</h3>
 				<h4><b>Gold:</b> {{players[0].gold}}</h4>
-				<div ng-repeat="card in players[0].deck" class="card">
+			</div>
+			<div class="row" id="deck">
+				<div ng-repeat="card in players[0].deck" class="card col-xs-4 col-md-2">
 					<div class="name">{{card.name}}</div>
-					<div class="pic" style="background-image: url('img/{{card.img}}')"></div>
+					<img class="pic" src="img/{{card.img}}" />
 					<div class="stat"><b>Str:</b> {{card.str}}</div>
 					<div class="stat"><b>Dex:</b> {{card.dex}}</div>
 					<div class="stat"><b>Int:</b> {{card.intel}}</div>
