@@ -1,4 +1,4 @@
-<widget id="com.jcpmcdonald.outoftime" version="1.0.1">
+<widget id="com.jcpmcdonald.forsparta" version="1.0.1">
 	<name>For Sparta!</name>
 	<description>
 		GDSE Spring Game Jam Entry
@@ -11,4 +11,9 @@
 	<preference name="Fullscreen" value="true" />
 	<preference name="WebViewBounce" value="true" />
 	<preference name="Orientation" value="portrait" />
+	
+	<preference name="permissions" value="none"/>
 </widget>
+
+
+
