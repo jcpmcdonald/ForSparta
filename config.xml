@@ -2,7 +2,7 @@
 		xmlns:gap		= "http://phonegap.com/ns/1.0"
 		xmlns:android	= "http://schemas.android.com/apk/res/android"
 		id				= "com.jcpmcdonald.forsparta"
-		version			= "1.0.1">
+		version			= "1.0.0">
 	<name>For Sparta!</name>
 	<description>
 		GDSE Spring Game Jam Entry
@@ -15,6 +15,14 @@
 	<preference name="Fullscreen" value="true" />
 	<preference name="WebViewBounce" value="true" />
 	<preference name="Orientation" value="portrait" />
+	
+	<gap:plugin name="com.adobe.plugins.gaplugin" />
+	
+	<supports-screens android:anyDensity="true" android:resizeable="false" 
+		android:smallScreens="true" 
+		android:normalScreens="true" 
+		android:largeScreens="true" 
+		android:xlargeScreens="true" />
 	
 	<preference name="permissions" value="none"/>
 </widget>

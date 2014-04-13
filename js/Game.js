@@ -1,4 +1,6 @@
 
+var gaPlugin;
+
 
 window.scopeOf = function(selector){
 	return angular.element('[ng-controller=' + selector + ']').scope();
@@ -552,7 +554,41 @@ var Game = {
 	
 }
 
-$(document).ready(function ()
-{
-	Game.start();
+
+$(document).ready(function() {
+	// are we running in native app or in a browser?
+	window.isphone = false;
+	if(document.URL.indexOf("http://") === -1 
+		&& document.URL.indexOf("https://") === -1
+		&& document.URL.indexOf("file://") === -1) {
+		alert("Running on a phone");
+		window.isphone = true;
+	}
+	
+	if( window.isphone ) {
+		document.addEventListener("deviceready", onDeviceReady, false);
+	} else {
+		onDeviceReady();
+	}
 });
+
+function onDeviceReady() {
+	Game.start();
+	
+	if(window.isphone)
+	{
+		gaPlugin = window.plugins.gaPlugin;
+		gaPlugin.init(successHandler, errorHandler, "UA-49961926-1", 10);
+	}
+}
+
+function successHandler()
+{
+	alert("success");
+}
+
+function errorHandler()
+{
+	alert("success");
+}
+
