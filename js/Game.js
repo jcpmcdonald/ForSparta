@@ -555,30 +555,33 @@ var Game = {
 }
 
 
-$(document).ready(function() {
-	// are we running in native app or in a browser?
-	window.isphone = false;
-	if(document.URL.indexOf("http://") === -1 
-		&& document.URL.indexOf("https://") === -1) {
-		window.isphone = true;
-	}
-	
-	if( window.isphone ) {
-		document.addEventListener("deviceready", onDeviceReady, false);
-		alert("Running on a phone");
-	} else {
-		onDeviceReady();
-	}
-});
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// $(document).ready(function() {
+	// // are we running in native app or in a browser?
+	// window.isphone = false;
+	// if(document.URL.indexOf("http://") === -1 
+		// && document.URL.indexOf("https://") === -1) {
+		// window.isphone = true;
+	// }
+	// 
+	// if( window.isphone ) {
+		// 
+	// } else {
+		// onDeviceReady();
+	// }
+// });
 
 function onDeviceReady() {
 	Game.start();
 	
-	if(window.isphone)
-	{
-		gaPlugin = window.plugins.gaPlugin;
-		gaPlugin.init(successHandler, errorHandler, "UA-49961926-1", 10);
-	}
+	log("System", "onDeviceReady");
+	
+	// if(window.isphone)
+	// {
+		// gaPlugin = window.plugins.gaPlugin;
+		// gaPlugin.init(successHandler, errorHandler, "UA-49961926-1", 10);
+	// }
 }
 
 function successHandler()
