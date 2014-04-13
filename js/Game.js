@@ -567,7 +567,7 @@ $(document).ready(function() {
 	if( window.isphone ) {
 		document.addEventListener("deviceready", onDeviceReady, false);
 	} else {
-		onDeviceReady();
+		//onDeviceReady();
 	}
 });
 

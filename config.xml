@@ -16,7 +16,7 @@
 	<preference name="WebViewBounce" value="true" />
 	<preference name="Orientation" value="portrait" />
 	
-	<gap:plugin name="com.adobe.plugins.gaplugin" />
+	<gap:plugin name="com.adobe.plugins.gaplugin" version="2.3.1" />
 	
 	<supports-screens android:anyDensity="true" android:resizeable="false" 
 		android:smallScreens="true" 
