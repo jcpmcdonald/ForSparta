@@ -565,6 +565,7 @@ $(document).ready(function() {
 	
 	if( window.isphone ) {
 		document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("offline", onOffline, false);
 	} else {
 		onDeviceReady();
 	}
@@ -573,12 +574,17 @@ $(document).ready(function() {
 function onDeviceReady() {
 	log("System", "onDeviceReady");
 	
-	Game.start();
-	
 	if(window.isphone)
 	{
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(successHandler, errorHandler, "UA-49961926-1", 10);
+	}
+	
+	Game.start();
+	
+	if(window.isphone)
+	{
+		gaPlugin.trackEvent( successHandler, errorHandler, "Button", "Click", "event only", 1);
 	}
 }
 
@@ -590,5 +596,10 @@ function successHandler(result)
 function errorHandler(result)
 {
 	alert("fail: "+ result);
+}
+
+function onOffline()
+{
+	alert("offline!");
 }
 
