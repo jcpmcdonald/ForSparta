@@ -560,12 +560,12 @@ $(document).ready(function() {
 	window.isphone = false;
 	if(document.URL.indexOf("http://") === -1 
 		&& document.URL.indexOf("https://") === -1) {
-		alert("Running on a phone");
 		window.isphone = true;
 	}
 	
 	if( window.isphone ) {
 		document.addEventListener("deviceready", onDeviceReady, false);
+		alert("Running on a phone");
 	} else {
 		onDeviceReady();
 	}
