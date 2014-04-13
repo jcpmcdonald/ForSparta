@@ -582,13 +582,13 @@ function onDeviceReady() {
 	}
 }
 
-function successHandler()
+function successHandler(result)
 {
-	alert("success");
+	alert("success: " + result);
 }
 
-function errorHandler()
+function errorHandler(result)
 {
-	alert("success");
+	alert("fail: "+ result);
 }
 
