@@ -60,15 +60,9 @@ a, a:hover, a:focus
 	margin-top: 0px;
 }
 
-#mainMenuWrap
-{
-	
-}
-
 #mainMenu
 {
-	height: 50%;
-	bottom: 0px;
+	text-align: center
 }
 
 .mainMenuButton
