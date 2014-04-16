@@ -72,7 +72,7 @@ function errorHandler(result)
 
 function onOffline()
 {
-	alert("offline!");
+	//alert("offline!");
 }
 
 

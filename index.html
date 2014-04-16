@@ -20,11 +20,14 @@
 	<script type="text/javascript" src="js/Tracking.js"></script>
 	
 	<script type="text/javascript">
-	$(document).ready(function() {
+	function addQuitButton()
+	{
 		if( isPhoneGap() ) {
 			$("#mainMenu").append('<a href="#" onClick="navigator.app.exitApp();" class="mainMenuButton">Quit</a>');
 		}
-	});
+	};
+	
+	document.addEventListener("deviceready", addQuitButton, false);
 	</script>
 </head>
 <body>
@@ -35,6 +38,7 @@
 			<a href="howto.html" class="mainMenuButton">How to Play</a><br/>
 			<a href="credits.html" class="mainMenuButton">Credits</a><br/>
 			
+			<div style="position: absolute; bottom: 0px; right: 10px;">v1.0</div>
 		</div>
 	</div>
 </body>

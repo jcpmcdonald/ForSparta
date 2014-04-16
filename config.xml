@@ -14,7 +14,7 @@
 	<access origin="*" />
 	<preference name="Fullscreen" value="true" />
 	<preference name="WebViewBounce" value="true" />
-	<preference name="Orientation" value="portrait" />
+	<preference name="orientation" value="portrait" />
 	
 	<gap:plugin name="com.adobe.plugins.gaplugin" version="2.3.1" />
 	
