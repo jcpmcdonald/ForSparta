@@ -18,7 +18,7 @@ body
 	font-family: 'Cinzel';
 	font-size: 1.5em;
 	
-	background: url(../img/paper-bg.jpg) no-repeat top left;
+	background: url(../img/paper-bg.jpg) no-repeat center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
