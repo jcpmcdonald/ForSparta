@@ -6,8 +6,6 @@
 	
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	
-	<link href='http://fonts.googleapis.com/css?family=Cinzel:400,700' rel='stylesheet' type='text/css'>
-	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
@@ -21,6 +19,12 @@
 	<script type="text/javascript" src="js/PhoneHelper.js"></script>
 	<script type="text/javascript" src="js/Tracking.js"></script>
 	
+	<script type="text/javascript">
+	$(document).ready(function() {
+	if( isPhoneGap() ) {
+		$("#mainMenu").append('<a href="#" onClick="navigator.app.exitApp();" class="mainMenuButton">Quit</a>');
+	}
+	</script>
 </head>
 <body>
 	<div class="container" id='mainMenuWrap'>
@@ -29,7 +33,7 @@
 			<a href="game.html" class="mainMenuButton">New Game</a><br/>
 			<a href="howto.html" class="mainMenuButton">How to Play</a><br/>
 			<a href="credits.html" class="mainMenuButton">Credits</a><br/>
-			<a ng-if="isPhoneGap()" href="#" onClick="navigator.app.exitApp();" class="mainMenuButton">Quit</a>
+			
 		</div>
 	</div>
 </body>
