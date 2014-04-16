@@ -21,9 +21,10 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function() {
-	if( isPhoneGap() ) {
-		$("#mainMenu").append('<a href="#" onClick="navigator.app.exitApp();" class="mainMenuButton">Quit</a>');
-	}
+		if( isPhoneGap() ) {
+			$("#mainMenu").append('<a href="#" onClick="navigator.app.exitApp();" class="mainMenuButton">Quit</a>');
+		}
+	});
 	</script>
 </head>
 <body>
