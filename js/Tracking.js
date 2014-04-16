@@ -43,6 +43,10 @@ function Track(category, action, opt_label, opt_value, opt_noninteraction)
 	log("Analytics", temp);
 	if(isPhoneGap())
 	{
+		if(typeof opt_value === "undefined")
+		{
+			opt_value = 1;
+		}
 		gaPlugin.trackEvent( successHandler, errorHandler, category, action, opt_label, opt_value);
 	}
 	else
