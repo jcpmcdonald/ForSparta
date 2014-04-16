@@ -39,8 +39,8 @@ function onDeviceReady()
 
 function Track(category, action, opt_label, opt_value, opt_noninteraction)
 {
-	var temp = {"category": category, "action": action, "opt_label": opt_label, "opt_value": opt_value, "opt_noninteraction": opt_noninteraction}
-	log("Analytics", temp);
+	//var temp = {"category": category, "action": action, "opt_label": opt_label, "opt_value": opt_value, "opt_noninteraction": opt_noninteraction}
+	//log("Analytics", temp);
 	if(isPhoneGap())
 	{
 		if(typeof opt_value === "undefined")
@@ -60,13 +60,13 @@ function Track(category, action, opt_label, opt_value, opt_noninteraction)
 
 function successHandler(result)
 {
-	log("Analytics", "success: " + result);
+	//log("Analytics", "success: " + result);
 	//alert("success: " + result);
 }
 
 function errorHandler(result)
 {
-	log("Analytics", "fail: " + result);
+	//log("Analytics", "fail: " + result);
 	//alert("fail: "+ result);
 }
 
