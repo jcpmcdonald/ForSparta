@@ -57,10 +57,7 @@ a, a:hover, a:focus
 
 #mainMenuWrap
 {
-	text-align: center;
-	position: absolute;
-	width: 100%;
-	height: 100%
+	
 }
 
 #mainMenu
@@ -73,8 +70,6 @@ a, a:hover, a:focus
 {
 	font-weight: bold;
 	font-size: 1.8em;
-	position: relative;
-	top: 40%;
 }
 
 .table
