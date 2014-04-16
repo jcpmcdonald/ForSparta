@@ -1,4 +1,79 @@
 
+@font-face {
+	font-family: 'Cinzel';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Cinzel-Regular'), url('../font/Cinzel-Regular.ttf') format('woff');
+}
+
+@font-face { 
+	font-family: 'Cinzel'; 
+	font-style: normal; 
+	font-weight: 700; 
+	src: local('Cinzel-Bold'), url('../font/Cinzel-Bold.ttf') format('woff'); 
+} 
+
+body
+{
+	font-family: 'Cinzel';
+	font-size: 1.5em;
+	
+	background-image: url('../img/paper-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment:fixed;
+}
+
+h1{ font-family: 'Cinzel'; font-weight: bold; }
+h2{ font-family: 'Cinzel'; }
+h3{ font-family: 'Cinzel'; }
+h4{ font-family: 'Cinzel'; }
+h5{ font-family: 'Cinzel'; }
+
+.title
+{
+	text-align: center;
+}
+
+a, a:hover, a:focus
+{
+	color: #225B5A;
+	text-decoration: none;
+}
+
+.creditTitle
+{
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.credit
+{
+	margin-top: 0px;
+}
+
+#mainMenuWrap
+{
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	height: 100%
+}
+
+#mainMenu
+{
+	height: 50%;
+	bottom: 0px;
+}
+
+.mainMenuButton
+{
+	font-weight: bold;
+	font-size: 1.8em;
+	position: relative;
+	top: 40%;
+}
+
 .table
 {
 	display: inline-block;

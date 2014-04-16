@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>For Sparta!</title>
+	
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<script type="text/javascript" src="phonegap.js"></script>
+	
+	<script type="text/javascript" src="lib/jquery-latest.js"></script>
+	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	
+	<script type="text/javascript" src="js/PhoneHelper.js"></script>
+	<script type="text/javascript" src="js/PlayerController.js"></script>
+	<script type="text/javascript" src="js/TableController.js"></script>
+	<script type="text/javascript" src="js/GameLog.js"></script>
+	<script type="text/javascript" src="js/Game.js"></script>
+	<script type="text/javascript" src="js/Tracking.js"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<h3 id="action" class="hidden-xs">Bid for slaves:</h3>
+		<div class="table row">
+			<div ng-controller="TableController">
+				<div ng-if="combatType == null">
+					<div ng-repeat="card in cards" class="card col-xs-4 col-md-2">
+						<div class="name">{{card.name}}</div>
+						<img class="pic" src="img/{{card.img}}" />
+						<div class="stat"><b>Str:</b> {{card.str}}</div>
+						<div class="stat"><b>Dex:</b> {{card.dex}}</div>
+						<div class="stat"><b>Int:</b> {{card.intel}}</div>
+						<div class="status">{{card.status}}<div class="buy"></div></div>
+					</div>
+				</div>
+				<div ng-if="combatType != null">
+					<div class="combatType"><p class="bg-success">{{combatType.name}}: {{combatType.description}}</p></div>
+					<div ng-repeat="contract in contracts" class="contractCard col-xs-4 col-md-2">
+						<div>{{contract.gold}} Gold</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-3 col-md-4"></div>
+			<div id="playerAction" class="col-xs-8 col-md-8"></div>
+		</div>
+		
+		<div ng-controller="PlayerController">
+			<div id="playerOrder" class="row">
+				<div ng-repeat="player in activePlayers" class="playerArea col-xs-4 col-md-2">
+					<div>{{player.status}}&nbsp;</div>
+					<div class="player">
+						<div class="name">{{player.name}}</div>
+						<div class="gold"><b>Gold:</b> {{player.gold}}</div>
+					</div>
+				</div>
+			</div>
+			<div id="passedPlayers" class="row">
+				<div ng-repeat="player in passedPlayers" class="playerArea col-xs-4 col-md-2">
+					<div>{{player.status}}&nbsp;</div>
+					<div class="player passed">
+						<div class="name">{{player.name}}</div>
+						<div class="gold"><b>Gold:</b> {{player.gold}}</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<h3>Your Ludus</h3>
+				<h4><b>Gold:</b> {{players[0].gold}}</h4>
+			</div>
+			<div class="row" id="deck">
+				<div ng-repeat="card in players[0].deck" class="card col-xs-4 col-md-2">
+					<div class="name">{{card.name}}</div>
+					<img class="pic" src="img/{{card.img}}" />
+					<div class="stat"><b>Str:</b> {{card.str}}</div>
+					<div class="stat"><b>Dex:</b> {{card.dex}}</div>
+					<div class="stat"><b>Int:</b> {{card.intel}}</div>
+					<div class="fight"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="row">
+			<div ng-controller="GameLog">
+				<div ng-repeat="line in logLines">
+					<div><b>{{line.name}}:</b> {{line.text}}</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

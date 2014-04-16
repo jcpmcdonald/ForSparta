@@ -7,6 +7,9 @@ window.scopeOf = function(selector){
 };
 
 
+
+
+
 // Taken from http://stackoverflow.com/a/6274398/536974
 function shuffle(array) {
 	var counter = array.length;
@@ -30,8 +33,21 @@ function shuffle(array) {
 	return array;
 }
 
+
+$(document).ready(function() {
+	if( isPhoneGap() ) {
+		document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("offline", onOffline, false);
+		
+		
+	} else {
+		onDeviceReady();
+	}
+});
+
+
 var Game = {
-	startingGold: 50,
+	startingGold: 30,
 	gameLog: null,
 	startingPlayer: 0,
 	currentBidder: 0,
@@ -277,6 +293,7 @@ var Game = {
 		
 		this.currentBidder.status = "Bid " + this.currentBidder.bid;
 		log(this.currentBidder.name, this.currentBidder.status);
+		Track("Action", "Bid", "" + this.currentBidder.bid, 1);
 		
 		this.currentBidder = this.nextPlayer(this.currentBidder, scopeOf("PlayerController").activePlayers, true);
 		this.bid(this.currentBidder);
@@ -289,6 +306,7 @@ var Game = {
 		this.pass(this.currentBidder);
 		this.currentBidder.status = "Pass";
 		log(this.currentBidder.name, this.currentBidder.status);
+		Track("Action", "Pass", "" + this.currentBid, 1);
 		
 		// If there's only 1 active player remaining, this bid is over and players select their soldiers
 		if(scopeOf("PlayerController").activePlayers.length == 1)
@@ -309,6 +327,11 @@ var Game = {
 		scopeOf("PlayerController").activePlayers[0].gold -= scopeOf("PlayerController").activePlayers[0].bid;
 		scopeOf("PlayerController").activePlayers[0].status = "Won for " + scopeOf("PlayerController").activePlayers[0].bid;
 		log(scopeOf("PlayerController").activePlayers[0].name, "Won the bid for " + scopeOf("PlayerController").activePlayers[0].bid + "gp and gets their first pick of the slaves");
+		
+		if(scopeOf("PlayerController").activePlayers[0] == scopeOf("PlayerController").players[0])
+		{
+			Track("Action", "Bid Won", "" + this.currentBid, 1);
+		}
 		
 		// Move the players over to the active list
 		for(var iPlayer = 0; iPlayer < scopeOf("PlayerController").passedPlayers.length; iPlayer++)
@@ -345,7 +368,7 @@ var Game = {
 			}
 			
 			cardTaken.owner = this.currentBidder;
-			cardTaken.status = this.currentBidder.name + " Owns";
+			cardTaken.status = this.currentBidder.name;
 			this.currentBidder.deck.push(cardTaken);
 			log(this.currentBidder.name, "Has selected " + cardTaken.name);
 			
@@ -397,9 +420,10 @@ var Game = {
 		
 		var cardTaken = cardsOnTable[iCard];
 		cardTaken.owner = this.currentBidder;
-		cardTaken.status = "Taken by " + this.currentBidder.name;
+		cardTaken.status = this.currentBidder.name;
 		this.currentBidder.deck.push(cardTaken);
 		log(this.currentBidder.name, "Has selected " + cardTaken.name);
+		Track("Action", "Selected Slave", cardTaken.name);
 		
 		this.currentBidder = this.nextPlayer(this.currentBidder, scopeOf("PlayerController").activePlayers, false);
 		
@@ -427,6 +451,8 @@ var Game = {
 	
 	startFight: function()
 	{
+		Track("Game", "Start Tournament", "" + scopeOf("PlayerController").players[0].gold);
+		
 		$("#action").html("Select a soldier to fight in the tournament");
 		$("#playerAction").html("");
 		
@@ -479,6 +505,8 @@ var Game = {
 		var combatType = scopeOf("TableController").combatType;
 		
 		log(this.getPlayers()[0].name, "Has selected " + this.getPlayers()[0].deck[playerCard].name + " to fight for him");
+		Track("Action", "Fight Slave", this.getPlayers()[0].deck[playerCard].name, combatType.description);
+		
 		
 		for(var iPlayer = 0; iPlayer < this.getPlayers().length; iPlayer++)
 		{
@@ -513,6 +541,11 @@ var Game = {
 			selectedCards[iCard].player.deck.splice( $.inArray(selectedCards[iCard].card, selectedCards[iCard].player.deck), 1);
 			
 			log(selectedCards[iCard].player.name, "Has taken the " + contractsAvail[iCard].gold + " prize with " + selectedCards[iCard].card.name + " (value of " + this.calcCardValueInFight(selectedCards[iCard].card, combatType) + ")");
+			
+			if(selectedCards[iCard].player == this.getPlayers()[0])
+			{
+				Track("Action", "Took Contract", contractsAvail[iCard].gold);
+			}
 		}
 		
 		
@@ -529,7 +562,12 @@ var Game = {
 			$("#deck").hide();
 			
 			var players = this.getPlayers();
-			players.sort(function(a, b){ return a.gold < b.gold });
+			players = players.sort(function(a, b){ return a.gold < b.gold });
+			
+			var playerPlace = players.indexOf(this.getPlayers()[0]) + 1;
+			
+			Track("Game", "Game over gold", "" + this.getPlayers()[0].gold, 1);
+			Track("Game", "Game over place", "" + playerPlace, 1);
 			
 			scopeOf("PlayerController").activePlayers = players;
 			$("#playerOrder").show();
@@ -552,54 +590,5 @@ var Game = {
 	},
 	
 	
-}
-
-
-$(document).ready(function() {
-	// are we running in native app or in a browser?
-	window.isphone = false;
-	if(document.URL.indexOf("http://") === -1 
-		&& document.URL.indexOf("https://") === -1) {
-		window.isphone = true;
-	}
-	
-	if( window.isphone ) {
-		document.addEventListener("deviceready", onDeviceReady, false);
-		document.addEventListener("offline", onOffline, false);
-	} else {
-		onDeviceReady();
-	}
-});
-
-function onDeviceReady() {
-	log("System", "onDeviceReady");
-	
-	if(window.isphone)
-	{
-		gaPlugin = window.plugins.gaPlugin;
-		gaPlugin.init(successHandler, errorHandler, "UA-49961926-1", 10);
-	}
-	
-	Game.start();
-	
-	if(window.isphone)
-	{
-		gaPlugin.trackEvent( successHandler, errorHandler, "Button", "Click", "event only", 1);
-	}
-}
-
-function successHandler(result)
-{
-	alert("success: " + result);
-}
-
-function errorHandler(result)
-{
-	alert("fail: "+ result);
-}
-
-function onOffline()
-{
-	alert("offline!");
 }
 

@@ -18,19 +18,18 @@
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 	<script type="text/javascript" src="lib/angular.min.js"></script>
 	
+	
 	<script type="text/javascript" src="js/PhoneHelper.js"></script>
 	<script type="text/javascript" src="js/Tracking.js"></script>
-	
 </head>
 <body>
 	<div class="container" id='mainMenuWrap'>
-		<h1>For Sparta!</h1>
-		<div id="mainMenu">
-		<a href="game.html" class="mainMenuButton">New Game</a><br/>
-		<a href="howto.html" class="mainMenuButton">How to Play</a><br/>
-		<a href="credits.html" class="mainMenuButton">Credits</a><br/>
-		<a ng-if="isPhoneGap()" href="#" onClick="navigator.app.exitApp();" class="mainMenuButton">Quit</a>
-		</div>
+		<h1>Credits</h1>
+		<br/><br/><br/>
+		<h3 class='creditTitle'>Programming</h3>
+		<h3 class='credit'><a href="#" onClick="visitExternalPage('http://jcpmcdonald.com')">John McDonald</a></h3>
+		<h3 class='creditTitle'>Portraits</h3>
+		<h3 class='credit'><a href="#" onClick="visitExternalPage('http://opengameart.org/content/60-terrible-character-portraits'); return false;">Terrible Character Portraits</a></h3>
 	</div>
 </body>
 </html>
