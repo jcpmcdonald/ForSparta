@@ -10,6 +10,7 @@
 	<author email="jcpmcdonald@gmail.com" href="http://jcpmcdonald.com">
 		John McDonald
 	</author>
+	<icon src="icon.png" />
 	<content src="index.html" />
 	<access origin="*" />
 	<preference name="Fullscreen" value="true" />
