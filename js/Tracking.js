@@ -39,6 +39,8 @@ function onDeviceReady()
 
 function Track(category, action, opt_label, opt_value, opt_noninteraction)
 {
+	var temp = {"category": category, "action": action, "opt_label": opt_label, "opt_value": opt_value, "opt_noninteraction": opt_noninteraction}
+	log("Analytics", temp);
 	if(isPhoneGap())
 	{
 		gaPlugin.trackEvent( successHandler, errorHandler, category, action, opt_label, opt_value);
@@ -54,12 +56,14 @@ function Track(category, action, opt_label, opt_value, opt_noninteraction)
 
 function successHandler(result)
 {
-	alert("success: " + result);
+	log("Analytics", "success: " + result);
+	//alert("success: " + result);
 }
 
 function errorHandler(result)
 {
-	alert("fail: "+ result);
+	log("Analytics", "fail: " + result);
+	//alert("fail: "+ result);
 }
 
 function onOffline()
