@@ -84,7 +84,7 @@ a, a:hover, a:focus
 	
 	/*width: 150px;*/
 	/*height: 240px;*/
-	min-height:100px;
+	/*min-height:100px;*/
 	border: 1px;
 	border-color: grey;
 	border-style: solid;
@@ -126,7 +126,7 @@ a, a:hover, a:focus
 .card .pic
 {
 	height: 50%;
-	min-height:50px;
+	/*min-height:50px;*/
 	background-color: white;
 	width: 90%;
 	margin-left: 5%;
