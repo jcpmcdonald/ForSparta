@@ -18,22 +18,24 @@ body, html {
 	margin: 0;
 }
 
-html
-{
-	background: url(../img/paper-bg.jpg) no-repeat fixed center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
 
 body
 {
 	font-family: 'Cinzel';
 	font-size: 1.5em;
 	
-	background-color: transparent;
+	background: url(../img/paper-bg.jpg) no-repeat center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-attachment:fixed;
+
 }
+
+
+
 
 h1{ font-family: 'Cinzel'; font-weight: bold; }
 h2{ font-family: 'Cinzel'; }
