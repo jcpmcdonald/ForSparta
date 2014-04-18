@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="stylesheet" media="(max-width: 768px)" href="css/phonestyles.css" />
 	
 	<script type="text/javascript" src="phonegap.js"></script>
 	
@@ -36,7 +37,7 @@
 						<div class="stat"><b>Str:</b> {{card.str}}</div>
 						<div class="stat"><b>Dex:</b> {{card.dex}}</div>
 						<div class="stat"><b>Int:</b> {{card.intel}}</div>
-						<div class="status">{{card.status}}<div class="buy"></div></div>
+						<div class="status buy">{{card.status}}</div>
 					</div>
 				</div>
 				<div ng-if="combatType != null">

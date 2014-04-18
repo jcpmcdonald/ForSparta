@@ -35,8 +35,6 @@ body
 }
 
 
-
-
 h1{ font-family: 'Cinzel'; font-weight: bold; }
 h2{ font-family: 'Cinzel'; }
 h3{ font-family: 'Cinzel'; }
@@ -95,6 +93,7 @@ a, a:hover, a:focus
 	background-color: lightgrey;
 	
 	padding: 5px;
+	margin: 5px;
 }
 
 .contractCard

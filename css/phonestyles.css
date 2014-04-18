@@ -1,0 +1,41 @@
+.card{
+	font-size: 0.75em;
+	padding: 2px;
+}
+
+.player{
+	font-size: 0.75em;
+	/*padding: 2px;*/
+}
+
+.playerArea{
+	padding: 0px;
+	margin: 5px;
+}
+
+.col-xs-4 {
+    width: 30%;
+}
+
+#playerOrder{
+	width: 100%;
+}
+
+
+.card .status:empty
+{
+	display: none;
+}
+
+
+
+
+@media (max-width: 330px) {
+	.card{
+		padding: 0px;
+		margin: 0px;
+	}
+	.col-xs-4 {
+		width: 33%;
+	}
+}
